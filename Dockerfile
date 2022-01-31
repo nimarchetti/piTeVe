@@ -1,16 +1,24 @@
-FROM golang:latest
+FROM alpine:latest
+RUN apk update
+RUN apk upgrade
+RUN apk add --no-cache ca-certificates
 
-WORKDIR /go/src/app
+MAINTAINER nimarchetti nik@incorporation.co.uk
+
+
+RUN apk add --no-cache curl
+
+
+RUN apk update && apk add --no-cache tzdata
+ENV TZ=Europe/London
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+
+RUN apk add --no-cache bash busybox-suid su-exec
+
+WORKDIR /src/xteve
+
 COPY xteve .
-#COPY . .
-#RUN go get github.com/xteve-project/xTeVe
-#RUN go get github.com/koron/go-ssdp
-#RUN go get github.com/gorilla/websocket
-#RUN go get github.com/kardianos/osext
+COPY guide2go .
 
-#RUN go build xteve.go
-
-#RUN go get -d -v ./...
-#RUN go install -v github.com/xteve-project/xTeVe@latest
 RUN ./xteve
-#CMD ["xteve"]
