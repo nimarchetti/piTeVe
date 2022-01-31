@@ -10,6 +10,6 @@ RUN go get github.com/kardianos/osext
 #RUN go build xteve.go
 
 #RUN go get -d -v ./...
-RUN go install -v github.com/xteve-project/xTeVe
+RUN go install -v github.com/xteve-project/xTeVe@latest
 
 CMD ["xteve"]
