@@ -1,7 +1,7 @@
 FROM golang:latest
 
 WORKDIR /go/src/app
-COPY xteve 
+COPY xteve .
 #COPY . .
 #RUN go get github.com/xteve-project/xTeVe
 #RUN go get github.com/koron/go-ssdp
