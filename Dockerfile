@@ -21,4 +21,4 @@ WORKDIR /src/xteve
 COPY xteve .
 COPY guide2go .
 
-RUN /bin/bash 
+CMD ["./xteve"]
