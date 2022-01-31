@@ -7,7 +7,7 @@ MAINTAINER nimarchetti nik@incorporation.co.uk
 
 
 RUN apk add --no-cache curl
-
+RUN apk add libc6-compat
 
 RUN apk update && apk add --no-cache tzdata
 ENV TZ=Europe/London
