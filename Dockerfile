@@ -16,7 +16,14 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apk add --no-cache bash busybox-suid su-exec
 
+VOLUME /config
+VOLUME /guide2go
+VOLUME /root/.xteve
+VOLUME /tmp/xteve
+
 WORKDIR /src/xteve
+
+
 
 COPY xteve .
 COPY guide2go .
